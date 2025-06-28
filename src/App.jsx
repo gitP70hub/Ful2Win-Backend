@@ -29,6 +29,7 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import PhoneVerification from './pages/PhoneVerification';
 import ForgotPassword from './pages/ForgotPassword';
+import PhoneAuth from './components/auth/PhoneAuth';
 import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import ColorSmash from './games/ColorSmash';
@@ -48,6 +49,7 @@ function App() {
         <ErrorBoundary>
           <Routes>
             {/* Public routes */}
+<Route path="/phone-auth" element={<PhoneAuth />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/verify-phone" element={<PhoneVerification />} />

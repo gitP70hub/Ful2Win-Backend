@@ -5,6 +5,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import logo from '../assets/logo.png';
 import { useAuth } from '../contexts/AuthContext';
 import BackgroundBubbles from '../components/BackgroundBubbles';
+import { Button, Divider, Typography } from '@mui/material';
+import PhoneIcon from '@mui/icons-material/Phone';
 
 const Login = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -161,10 +163,39 @@ const Login = () => {
           </button>
         </form>
 
-        <p className="text-sm text-center mt-4 text-gray-500">
-          Don’t have an account?{' '}
-          <Link to="/signup" className="text-blue-600 hover:underline font-medium">SignUp</Link>
-        </p>
+        <div className="mt-4 text-center">
+          <Divider sx={{ my: 2 }}>
+            <Typography variant="body2" color="text.secondary">OR</Typography>
+          </Divider>
+          
+          <Button
+            variant="outlined"
+            fullWidth
+            size="large"
+            startIcon={<PhoneIcon />}
+            onClick={() => navigate('/phone-auth')}
+            sx={{
+              mt: 2,
+              mb: 2,
+              py: 1.5,
+              borderColor: 'primary.main',
+              color: 'primary.main',
+              '&:hover': {
+                backgroundColor: 'primary.light',
+                opacity: 0.9,
+              },
+            }}
+          >
+            Sign in with Phone
+          </Button>
+          
+          <p className="text-gray-600">
+            Don't have an account?{' '}
+            <Link to="/signup" className="text-blue-500 hover:underline">
+              Sign up
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );
